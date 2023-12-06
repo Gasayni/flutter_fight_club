@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: MyHomePage(),
     );
   }
@@ -33,8 +33,8 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: const Color.fromRGBO(213, 222, 240, 1),
         body: Column(
           children: [
-            SizedBox(height: 70),
-            Row(
+            const SizedBox(height: 70),
+            const Row(
               children: [
                 SizedBox(width: 16),
                 Expanded(child: Center(child: Text('You'))),
@@ -43,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(width: 16),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 35,
             ),
             const Row(
@@ -80,17 +80,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(width: 16),
               ],
             ),
-            Expanded(child: SizedBox()),
+            const Expanded(child: SizedBox()),
             // это вторая строка, которая растянута на весь экран, т.о. она прижимает к краям первую и третью строки
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(width: 16), // создает пустоту с левого края
+                const SizedBox(width: 16), // создает пустоту с левого края
                 Expanded(
                   child: Column(
                     children: [
                       Text('Defend'.toUpperCase()),
-                      SizedBox(height: 13),
+                      const SizedBox(height: 13),
                       // создает пустоту между Defend и кнопками снизу
                       BodyPartButton(
                         bodyPart: BodyPart.head,
@@ -98,43 +98,57 @@ class _MyHomePageState extends State<MyHomePage> {
                         bodyPartSetter: _selectDefendingBodyPart,
                       ),
 
-                      SizedBox(height: 13),
+                      const SizedBox(height: 13),
                       // создает пустоту между кнопками head & torso слева
                       BodyPartButton(
                           bodyPart: BodyPart.torso,
                           selected: defendingBodyPart == BodyPart.torso,
                           bodyPartSetter: _selectDefendingBodyPart),
+
+                      const SizedBox(height: 13),
+                      // создает пустоту между кнопками head & torso слева
+                      BodyPartButton(
+                          bodyPart: BodyPart.legs,
+                          selected: defendingBodyPart == BodyPart.legs,
+                          bodyPartSetter: _selectDefendingBodyPart),
                     ],
                   ),
                 ),
-                SizedBox(width: 12), // создает пустоту в центре между кнопками
+                const SizedBox(width: 12), // создает пустоту в центре между кнопками
                 Expanded(
                   child: Column(
                     children: [
                       Text('Attack'.toUpperCase()),
-                      SizedBox(height: 13),
+                      const SizedBox(height: 13),
                       // создает пустоту между Attack и кнопками снизу
                       BodyPartButton(
                         bodyPart: BodyPart.head,
                         selected: attackingBodyPart == BodyPart.head,
                         bodyPartSetter: _selectAttackingBodyPart,
                       ),
-                      SizedBox(height: 13),
+                      const SizedBox(height: 13),
                       // создает пустоту между кнопками head & torso справа
                       BodyPartButton(
                           bodyPart: BodyPart.torso,
                           selected: attackingBodyPart == BodyPart.torso,
                           bodyPartSetter: _selectAttackingBodyPart),
+
+                      const SizedBox(height: 13),
+                      // создает пустоту между кнопками head & torso слева
+                      BodyPartButton(
+                          bodyPart: BodyPart.legs,
+                          selected: attackingBodyPart == BodyPart.legs,
+                          bodyPartSetter: _selectAttackingBodyPart),
                     ],
                   ),
                 ),
-                SizedBox(width: 16),
+                const SizedBox(width: 16),
               ],
             ),
-            SizedBox(height: 14),
+            const SizedBox(height: 14),
             Row(
               children: [
-                SizedBox(width: 16),
+                const SizedBox(width: 16),
                 Expanded(
                     child: SizedBox(
                   height: 40,
@@ -157,7 +171,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Center(
                         child: Text(
                           'Go'.toUpperCase(),
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontWeight: FontWeight.w900,
                             fontSize: 16,
                             color: Colors.white,
@@ -167,7 +181,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 )),
-                SizedBox(width: 16),
+                const SizedBox(width: 16),
               ],
             )
           ],
@@ -194,6 +208,7 @@ class BodyPart {
 
   static const head = BodyPart._('Head');
   static const torso = BodyPart._('Torso');
+  static const legs = BodyPart._('Legs');
 
   @override
   String toString() {
