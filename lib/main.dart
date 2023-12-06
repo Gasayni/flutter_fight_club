@@ -30,95 +30,148 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: const Color.fromRGBO(213, 222, 240, 1),
         body: Column(
-      children: [
-        SizedBox(height: 70),
-        Row(
           children: [
-            SizedBox(width: 16),
-            Expanded(child: Center(child: Text('You'))),
-            SizedBox(width: 12),
-            Expanded(child: Center(child: Text('Enimy'))),
-            SizedBox(width: 16),
-          ],
-        ),
-        Expanded(child: SizedBox()),
-        // это вторая строка, которая растянута на весь экран, т.о. она прижимает к краям первую и третью строки
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(width: 16), // создает пустоту с левого края
-            Expanded(
-              child: Column(
-                children: [
-                  Text('Defend'.toUpperCase()),
-                  SizedBox(height: 13),
-                  // создает пустоту между Defend и кнопками снизу
-                  BodyPartButton(
-                    bodyPart: BodyPart.head,
-                    selected: defendingBodyPart == BodyPart.head,
-                    bodyPartSetter: _selectDefendingBodyPart,
-                  ),
-
-                  SizedBox(height: 13),
-                  // создает пустоту между кнопками head & torso слева
-                  BodyPartButton(
-                      bodyPart: BodyPart.torso,
-                      selected: defendingBodyPart == BodyPart.torso,
-                      bodyPartSetter: _selectDefendingBodyPart),
-                ],
-              ),
+            SizedBox(height: 70),
+            Row(
+              children: [
+                SizedBox(width: 16),
+                Expanded(child: Center(child: Text('You'))),
+                SizedBox(width: 12),
+                Expanded(child: Center(child: Text('Enimy'))),
+                SizedBox(width: 16),
+              ],
             ),
-            SizedBox(width: 12), // создает пустоту в центре между кнопками
-            Expanded(
-              child: Column(
-                children: [
-                  Text('Attack'.toUpperCase()),
-                  SizedBox(height: 13),
-                  // создает пустоту между Attack и кнопками снизу
-                  BodyPartButton(
-                    bodyPart: BodyPart.head,
-                    selected: attackingBodyPart == BodyPart.head,
-                    bodyPartSetter: _selectAttackingBodyPart,
-                  ),
-                  SizedBox(height: 13),
-                  // создает пустоту между кнопками head & torso справа
-                  BodyPartButton(
-                      bodyPart: BodyPart.torso,
-                      selected: attackingBodyPart == BodyPart.torso,
-                      bodyPartSetter: _selectAttackingBodyPart),
-                ],
-              ),
+            SizedBox(
+              height: 35,
             ),
-            SizedBox(width: 16),
-          ],
-        ),
-        SizedBox(height: 14),
-        Row(
-          children: [
-            SizedBox(width: 16),
-            Expanded(
-                child: SizedBox(
-              height: 40,
-              child: ColoredBox(
-                color: Colors.black87,
-                child: Center(
-                  child: Text(
-                    'Go'.toUpperCase(),
-                    style: TextStyle(
-                      fontWeight: FontWeight.w900,
-                      fontSize: 16,
-                      color: Colors.white,
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(width: 16),
+                Expanded(
+                  child: Center(
+                    child: Column(
+                      children: [
+                        Text("1"),
+                        Text("1"),
+                        Text("1"),
+                        Text("1"),
+                        Text("1"),
+                      ],
                     ),
                   ),
                 ),
-              ),
-            )),
-            SizedBox(width: 16),
+                SizedBox(width: 12),
+                Expanded(
+                  child: Center(
+                    child: Column(
+                      children: [
+                        Text("1"),
+                        Text("1"),
+                        Text("1"),
+                        Text("1"),
+                        Text("1"),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(width: 16),
+              ],
+            ),
+            Expanded(child: SizedBox()),
+            // это вторая строка, которая растянута на весь экран, т.о. она прижимает к краям первую и третью строки
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(width: 16), // создает пустоту с левого края
+                Expanded(
+                  child: Column(
+                    children: [
+                      Text('Defend'.toUpperCase()),
+                      SizedBox(height: 13),
+                      // создает пустоту между Defend и кнопками снизу
+                      BodyPartButton(
+                        bodyPart: BodyPart.head,
+                        selected: defendingBodyPart == BodyPart.head,
+                        bodyPartSetter: _selectDefendingBodyPart,
+                      ),
+
+                      SizedBox(height: 13),
+                      // создает пустоту между кнопками head & torso слева
+                      BodyPartButton(
+                          bodyPart: BodyPart.torso,
+                          selected: defendingBodyPart == BodyPart.torso,
+                          bodyPartSetter: _selectDefendingBodyPart),
+                    ],
+                  ),
+                ),
+                SizedBox(width: 12), // создает пустоту в центре между кнопками
+                Expanded(
+                  child: Column(
+                    children: [
+                      Text('Attack'.toUpperCase()),
+                      SizedBox(height: 13),
+                      // создает пустоту между Attack и кнопками снизу
+                      BodyPartButton(
+                        bodyPart: BodyPart.head,
+                        selected: attackingBodyPart == BodyPart.head,
+                        bodyPartSetter: _selectAttackingBodyPart,
+                      ),
+                      SizedBox(height: 13),
+                      // создает пустоту между кнопками head & torso справа
+                      BodyPartButton(
+                          bodyPart: BodyPart.torso,
+                          selected: attackingBodyPart == BodyPart.torso,
+                          bodyPartSetter: _selectAttackingBodyPart),
+                    ],
+                  ),
+                ),
+                SizedBox(width: 16),
+              ],
+            ),
+            SizedBox(height: 14),
+            Row(
+              children: [
+                SizedBox(width: 16),
+                Expanded(
+                    child: SizedBox(
+                  height: 40,
+                  child: GestureDetector(
+                    onTap: () => {
+                      if (attackingBodyPart != null &&
+                          defendingBodyPart != null)
+                        {
+                          setState(() {
+                            attackingBodyPart = null;
+                            defendingBodyPart = null;
+                          }),
+                        },
+                    },
+                    child: ColoredBox(
+                      color:
+                          attackingBodyPart == null || defendingBodyPart == null
+                              ? Colors.black38
+                              : const Color.fromRGBO(0, 0, 0, 0.87),
+                      child: Center(
+                        child: Text(
+                          'Go'.toUpperCase(),
+                          style: TextStyle(
+                            fontWeight: FontWeight.w900,
+                            fontSize: 16,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                )),
+                SizedBox(width: 16),
+              ],
+            )
           ],
-        )
-      ],
-    ));
+        ));
   }
 
   void _selectDefendingBodyPart(final BodyPart value) {
@@ -168,7 +221,7 @@ class BodyPartButton extends StatelessWidget {
         height: 40,
         child: ColoredBox(
           color:
-              selected ? const Color.fromRGBO(28, 121, 206, 1) : Colors.black26,
+              selected ? const Color.fromRGBO(28, 121, 206, 1) : Colors.black38,
           child: Center(child: Text(bodyPart.name.toUpperCase())),
         ),
       ),
